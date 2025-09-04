@@ -121,11 +121,11 @@ services:
     privileged: true
     env_file: *env_file
     environment:
-      - TEST=1
-      # Add Java certificate trust configuration
-      # - ES_JAVA_OPTS=-Djdk.tls.client.protocols=TLSv1.2 -Dhttps.protocols=TLSv1.2 -Djavax.net.ssl.trustAll=true -Xms4096m -Xmx4096m
-    # ports:
-    #   - '9200'
+      - ELASTICSEARCH_PLUGINS=analysis-smartcn
+    volumes:
+      - ./nginx/my_elasticsearch.yml:/opt/bitnami/elasticsearch/config/my_elasticsearch.yml
+    ports:
+      - "9200:9200"
     volumes:
       - ./data/bitnami/elasticsearch:/bitnami/elasticsearch/data
       - ./volumes/elasticsearch/elasticsearch.yml:/opt/bitnami/elasticsearch/config/my_elasticsearch.yml
