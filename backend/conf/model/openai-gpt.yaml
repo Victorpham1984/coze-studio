@@ -50,7 +50,7 @@ meta:
     reasoning: false
   conn_config:
     base_url: "https://api.openai.com/v1"
-    api_key: "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"
+    api_key: "${OPENAI_API_KEY}"
     timeout: 0s
     model: "gpt-4o-mini"
     temperature: 0.7
